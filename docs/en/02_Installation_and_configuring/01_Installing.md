@@ -16,7 +16,7 @@ Needed PHP modules:
 - curl
 - intl
 
-Full installation process for Ubuntu 14.10 [read here](Full_stack_installation/Ubuntu_14_10).
+Full installation process for Ubuntu 14.10 [read here](Full_stack_installation/Ubuntu_14_10.html).
 
 ## Downloading and installing
 
@@ -39,4 +39,4 @@ Follow installation instructions.
 **Note: ** You will be asked for admin user credentials. Admin user is the only one(for now) user, that can use backend located at http://YOUR_HOSTNAME/backend/
 
 
-Continue to [configuring &rarr;](Installation_and_configuring/Configuration)
+Continue to [configuring &rarr;](Configuration.html)
