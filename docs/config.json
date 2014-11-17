@@ -1,0 +1,26 @@
+{
+    "title": "DotPlant2",
+    "tagline": "Developer & user docs",
+    "theme": "daux-blue",
+    "template": "default",
+    "clean_urls": true,
+    "toggle_code": true,
+    "breadcrumbs": true,
+    "breadcrumb_separator": "Chevrons",
+    "date_modified": true,
+    "float": false,
+    "file_editor": false,   
+    "google_analytics": "UA-56745244-2",
+    "timezone": "Europe/Moscow",
+    "languages": {
+        "en": "English",
+        "ru": "Russian"
+    },
+    "repo": "DevGroup-Ru/dotplant2",
+    "twitter": ["DevGroup_Ru"],
+    "links": {
+        "Download": "https://github.com/DevGroup-ru/dotplant2/archive/master.zip",
+        "GitHub Repo": "https://github.com/DevGroup-ru/dotplant2",
+        "Help/Support/Bugs": "https://github.com/DevGroup-ru/dotplant2/issues"
+    }
+}
