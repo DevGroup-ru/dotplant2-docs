@@ -19,8 +19,9 @@
     "repo": "DevGroup-Ru/dotplant2",
     "twitter": ["DevGroup_Ru"],
     "links": {
-        "Download": "https://github.com/DevGroup-ru/dotplant2/archive/master.zip",
+        "Download git snapshot": "https://github.com/DevGroup-ru/dotplant2/archive/master.zip",
         "GitHub Repo": "https://github.com/DevGroup-ru/dotplant2",
-        "Help/Support/Bugs": "https://github.com/DevGroup-ru/dotplant2/issues"
+        "Help/Support/Bugs": "https://github.com/DevGroup-ru/dotplant2/issues",
+        "Official DotPlant2 CMS site": "http://dotplant.ru/"
     }
 }
