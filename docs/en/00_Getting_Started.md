@@ -43,3 +43,4 @@
     + URL routing
     + Tagable cache
     + Background tasks
+    + Implementing custom search response
