@@ -64,7 +64,6 @@ negligence or otherwise) arising in any way out of the use of this
 software, even if advised of the possibility of such damage.
 
 */
-	header('Content-Type: text/html; charset=utf-8');
     $Daux = new \Todaymade\Daux\Daux();
     $Daux->initialize();
     $page = $Daux->handle_request($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], $_REQUEST);
