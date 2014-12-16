@@ -9,7 +9,7 @@
 - Installing DotPlant2
     + Example setup with Ubuntu 14.10]
 - Configuration files
-- [Использование собственной темы](theme)
+- [Использование собственной темы](Theme)
 - Admin panel overview
 - Writing custom backend controllers
 - Base content principles
