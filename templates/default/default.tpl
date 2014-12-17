@@ -76,6 +76,7 @@
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <title><?php echo $page['title']; ?></title>
+    <meta charset="utf-8" />
     <meta name="description" content="<?php echo $page['tagline'];?>" />
     <meta name="author" content="<?php echo $page['author']; ?>">
     <link rel="icon" href="<?php echo $page['theme']['favicon']; ?>" type="image/x-icon">
