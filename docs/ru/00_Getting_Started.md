@@ -31,7 +31,7 @@
     + Using 'Dynamic content'
 - Site navigation
     + Template markup
-- Feedback and order forms
+- [Формы](Forms)
     + Template markup
 - Reviews
     + Template markup
