@@ -6,44 +6,23 @@
 
 ```
 theme/
-	module/ // модуль сайтоспецефичного функционала
+	module/ // модуль сайтоспецифичного функционала
 		components/
-		config/
+		config/ // конфиг-файлы для конкретного сайта и сайтоспецифичных реализаций
 			common.php
 			console.php
 			db.php
-			web.php
+			web.php 
 		controllers/
 			...
 			DefaultController.php
 			...
-		themes/
-			...
-			mytheme/
-				views/
-					...
-					default/
-						...
-						index.php
-						...
-					layouts/
-						...
-						main.php
-						...
-					product/
-						...
-						list.php
-						show.php
-						...
-					...
-			...
-		views/
+		views/ // представления сайто-специфичных контроллеров
 			...
 			default
 				...
 				index.php
 				...
-		.htaccess // файл закрывающий доступ к директории модуля (содержит всего одну строку `Deny from All`)
 		Module.php
 	resources/ // web ресурсы (js скрипты, изображения, стили и прочее)
 		css/
@@ -51,12 +30,29 @@ theme/
 		js/
 		less/
 		product-images/ // каталог для загрузки изображения товаров (должен иметь разрешение на запись файлов)
+		sliders/ // каталог для загрузки изображений слайдера (должен иметь разрешение на запись файлов)
 		sass/
 		index.html // пустой файл
+	views/  // представления, переопределяющие базовые представления CMS
+		...
+		default/
+			...
+			index.php
+			...
+		layouts/
+			...
+			main.php
+			...
+		product/
+			...
+			list.php
+			show.php
+			...
+		...
 	index.html // пустой файл
 ```
 
-Для установки темы и сайтоспецефичного функционала необходимо в файле конфигураций задать путь к теме и модулю.
+Для установки темы и сайтоспецефичного функционала необходимо в файле конфигураций задать путь к теме и модулю. Это можно сделать в файле `theme/module/config/web.php`.
 
 
 ```
@@ -65,9 +61,9 @@ theme/
     'view' => [
         'theme' => [
             'pathMap' => [
-                '@app/views' => '@webroot/theme/module/themes/mytheme',
+                '@app/views' => '@webroot/theme/views',
             ],
-            'baseUrl' => '@webroot/theme/module/themes/mytheme',
+            'baseUrl' => '@webroot/theme/views',
         ],
     ],
 ],
@@ -79,3 +75,24 @@ theme/
 ```
 
 Подробнее о файлах конфигурации и правилах их загрузки можно прочитать [здесь](configuration_files).
+
+## Сайтоспецифичный функционал
+
+Сайтоспецифичный функционал желательно реализовывать в рамках пространства имён `app\web\theme\module`.
+
+Пример файла `Module.php`:
+
+``` php
+
+<?php
+
+namespace app\web\theme\module;
+
+use Yii;
+
+class Module extends \yii\base\Module
+{
+
+}
+
+```
