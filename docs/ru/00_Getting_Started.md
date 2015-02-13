@@ -29,11 +29,13 @@
     + Shipping options
     + Filtration by properties
     + Using 'Dynamic content'
-- Site navigation
+- [Навигиция](Navigation)
     + Template markup
 - [Формы](Forms)
     + Template markup
-- Reviews
+- [Отзывы](Reviews)
+    + Template markup
+- [Автокомплит](Autocomplete)
     + Template markup
 - Managing users and roles(RBAC)
 - Template markup for Shop
