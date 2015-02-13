@@ -29,6 +29,7 @@
     + Shipping options
     + Filtration by properties
     + Using 'Dynamic content'
+    + [импорт/экспорт](Import_Export)
 - [Навигиция](Navigation)
     + Template markup
 - [Формы](Forms)
