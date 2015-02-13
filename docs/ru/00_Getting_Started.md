@@ -13,7 +13,10 @@
 - Admin panel overview
 - Writing custom backend controllers
 - Base content principles
-- Managing content pages
+- Управление страницами контента
+    + [Страницы](Pages)
+    + [Категории](Categories)
+    + [Продукты](Products)
 - Properties
     + Managing properties
     + Implementing custom property type
@@ -29,7 +32,7 @@
     + Shipping options
     + Filtration by properties
     + Using 'Dynamic content'
-    + [импорт/экспорт](Import_Export)
+    + [Импорт/экспорт](Import_Export)
 - [Навигиция](Navigation)
     + Template markup
 - [Формы](Forms)
