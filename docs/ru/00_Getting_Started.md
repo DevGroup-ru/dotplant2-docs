@@ -28,7 +28,7 @@
     + Processing orders
         * Custom order statuses
     + Payment types
-        * Implementing custom payment type
+        * [Разработка платежных систем для DotPlant2](Custom_Payment)
     + Shipping options
     + Filtration by properties
     + Using 'Dynamic content'
