@@ -41,7 +41,7 @@
     + Template markup
 - [Автокомплит](Autocomplete)
     + Template markup
-- Managing users and roles(RBAC)
+- [Пользователи и роли](Users_And_Roles)
 - Template markup for Shop
 - Using marketplace
 
