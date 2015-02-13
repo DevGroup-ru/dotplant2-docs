@@ -32,4 +32,4 @@ echo \app\widgets\AutoCompleteSearch::widget(
 Дополнительные параметры:
 - `clientOptions` - массив опций http://api.jqueryui.com/autocomplete/ 
 - `listClass` - css класс для оформления списка результатов в подсказке
-- `route` - маршрут до действия автокомплита, по умолчанию  `'/default/auto-complete-search’`
+- `route` - маршрут до действия автокомплита, по умолчанию  `'/default/auto-complete-search'`
