@@ -42,6 +42,7 @@
 - [Автокомплит](Autocomplete)
     + Template markup
 - [Пользователи и роли](Users_And_Roles)
+- [SEO](SEO)
 - Template markup for Shop
 - Using marketplace
 
