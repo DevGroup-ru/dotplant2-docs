@@ -10,7 +10,7 @@
     + Example setup with Ubuntu 14.10]
 - Configuration files
 - [Использование собственной темы](Theme)
-- Admin panel overview
+- [Обхор административной панели](Admin_Panel_Overview)
 - Writing custom backend controllers
 - Base content principles
 - Управление страницами контента
