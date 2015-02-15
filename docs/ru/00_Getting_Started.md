@@ -31,7 +31,7 @@
         * [Разработка платежных систем для DotPlant2](Custom_Payment)
     + Shipping options
     + Filtration by properties
-    + Using 'Dynamic content'
+    + [Динамический контент](Dynamic_Content)
     + [Импорт/экспорт](Import_Export)
 - [Навигиция](Navigation)
     + Template markup
