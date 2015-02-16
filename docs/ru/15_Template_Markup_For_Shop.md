@@ -1,8 +1,8 @@
 Разметка базового шаблона магазина
 ===========================
 
-# Шаг 1. Создание новой темы
-Система Dotplant2 сделана таким образом, что бы было легко переопределять базувую верстку в своих проектах. 
+### Шаг 1. Создание новой темы
+Система DotPlant2 сделана таким образом, что бы было легко переопределять базувую верстку в своих проектах.
 
 Вся верстка по умолчанию хранится в папке  **@app/views**
 
@@ -82,7 +82,7 @@ return [
 
 
 
-# Шаг 2. Переопределение темы. Разметка базового шаблона.
+### Шаг 2. Переопределение темы. Разметка базового шаблона.
 
 В первую очередь стоит переопределить файлы из представлений layouts.
 
@@ -94,27 +94,91 @@ return [
 
 Далее будут описаны представления с обязательными частями:
 1. Шапка сайта (layouts/blocks/header.php) . В данном блоке должны храниться следующие элементы
-    * ```php <?php $this->beginPage(); ?>``` - Начало блока Head. в это место будут всавлены определенные css и js - файлы
-    * ```php <html lang="<?= Yii::$app->language ?>">``` - будет назначен язык приложения (ru, en итд)
-    * ```php <base href="http://<?=Config::getValue('core.serverName', Yii::$app->request->serverName)?>">``` - базовый путь к началу приложения, при этом не будут работать якоря без указания полного пути
-    * ```php <meta charset="<?= Yii::$app->charset ?>">``` - кодировка, по умолчанию utf-8
-    * ```php <title><?= Html::encode($this->title) ?></title>``` - Title страницы
-    * ```php <?= Html::csrfMetaTags() ?>``` - технический метатег, применятся для борьбы против csrf-атак на сайт
-    * ```php <?php $this->head(); ?>``` - Конец блока Head. в это место будут вставлены определенные css и js - файлы
-    * ```php <?php $this->beginBody(); ?>``` - Начало блока body. в это место будут вставлены определенные css и js - файлы
+    * `<?php $this->beginPage(); ?>` - Начало блока Head. в это место будут всавлены определенные css и js - файлы
+    * `<html lang="<?= Yii::$app->language ?>">` - будет назначен язык приложения (ru, en итд)
+    * `<base href="http://<?=Config::getValue('core.serverName', Yii::$app->request->serverName)?>">` - базовый путь к началу приложения, при этом не будут работать якоря без указания полного пути
+    * `<meta charset="<?= Yii::$app->charset ?>">` - кодировка, по умолчанию utf-8
+    * `<title><?= Html::encode($this->title) ?></title>` - Title страницы
+    * `<?= Html::csrfMetaTags() ?>` - технический метатег, применятся для борьбы против csrf-атак на сайт
+    * `<?php $this->head(); ?>` - Конец блока Head. в это место будут вставлены определенные css и js - файлы
+    * `<?php $this->beginBody(); ?>` - Начало блока body. в это место будут вставлены определенные css и js - файлы
 2. Футер сайта (layouts/blocks/footer.php) . В данном блоке должны храниться следующие элементы
-    * ```php  <?php $this->endBody(); ?> ```- Конец блока body. В это место будут вставлены определенные css и js - файлы
-    * ```php  <?php $this->endPage(); ?> ```- Конец блока Page. В это место будут вставлены определенные css и js - файлы
+    * `<?php $this->endBody(); ?> `- Конец блока body. В это место будут вставлены определенные css и js - файлы
+    * `<?php $this->endPage(); ?> `- Конец блока Page. В это место будут вставлены определенные css и js - файлы
 
-# Шаг 3. Правильное отображение h1, title, meta, content
+### Шаг 3. Правильное отображение h1, title, meta, content
 
 На страницах (page|product)/(list|show)  рекомендуется использовать `$this->blocks->h1` вместо `$model->h1` и т.п.! В противном случае попытка использовать prefiltered-pages потерпит неудачу - контент переписан не будет!!!
 Сам prefiltered-pages делает страницу со статичным абсолютным URL(точное совпадение URI по slug), показывающую отфильтрованные по заданным в админке условиям с кастомными h1, title, meta, content и прочим. Полезно для создания разделов типа "Новые товары", когда нужно отобразить например товары со свойством Новый-Да
 
-# Шаг 4. Взаимодействия с Javscript
+### Шаг 4. Взаимодействия с JavaScript
 1. Кнопка добавления товара в корзину должна иметь два атрибута `data-action="add-to-cart"` и `data-id="22"` , где 22 - id продукта.
 2. Отображение стоимости и количества товаров в корзине. Что бы вывести стоимость при загрузки страницы надо использовать виджет CartInfo 
 ```php
 <?= \app\widgets\CartInfo::widget(); ?>
 ```
 Если представление этого виджета, будет редактироваться. То обновления кооличества продуктов и стоимости корзины, тэги должны содержать следующие атрибуты `class="items-count"` - для обозначения количества товаров в корзине. `class="total-price"` - для обозначения общей цены корзины.
+3. Увелечение колличества товара. У пользователя есть воможность изменять колличество позиций товара, что бы изменить колличества товара используется js - метод changeAmount ( @app/web/js/main.js )
+```js
+  'changeAmount' : function(orderItemId, quantity, callback) {
+        var data = {
+            'id' : orderItemId,
+            'quantity' : quantity
+        };
+        jQuery.ajax({
+            'data' : data,
+            'dataType' : 'json',
+            'success' : function(data) {
+                if (typeof(callback) === 'function') {
+                    callback(data);
+                }
+            },
+            'type' : 'post',
+            'url' : '/cart/change-quantity'
+        });
+    }
+```
+
+    Пример вызова этого метода, можно увидеть в представлении начальной страницы корзины (@app/views/cart/index)
+    ```js
+      jQuery('input[data-type=quantity]').blur(function() {
+        var $input = jQuery(this);
+        var quantity = parseInt($input.val());
+        if (isNaN(quantity) || quantity < 1) {
+            quantity = 1;
+        }
+        Shop.changeAmount($input.data('id'), quantity, function(data) {
+            if (data.success) {
+                jQuery('#cart-table .total-price').text(data.totalPrice);
+                jQuery('#cart-table .items-count').text(data.itemsCount);
+                $input.parents('tr').eq(0).find('.item-price').text(data.itemPrice);
+                $input.val(quantity);
+            }
+        });
+    });
+    jQuery('#cart-table [data-action="change-quantity"]').click(function() {
+        var $this = jQuery(this);
+        var $input = $this.parents('td').eq(0).find('input[data-type=quantity]');
+        var quantity = parseInt($input.val());
+        if (isNaN(quantity)) {
+            quantity = 1;
+        }
+        if ($this.hasClass('plus')) {
+            quantity++;
+        } else {
+            if(quantity > 1) {
+                quantity--;
+            }
+        }
+        Shop.changeAmount($input.data('id'), quantity, function(data) {
+            if (data.success) {
+                jQuery('#cart-table .total-price').text(data.totalPrice);
+                jQuery('#cart-table .items-count').text(data.itemsCount);
+                $input.parents('tr').eq(0).find('.item-price').text(data.itemPrice);
+                $input.val(quantity);
+            }
+        });
+        return false;
+    });
+    ```
+
