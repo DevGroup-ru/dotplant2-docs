@@ -43,7 +43,7 @@
     + Template markup
 - [Пользователи и роли](Users_And_Roles)
 - [SEO](SEO)
-- Template markup for Shop
+- [Разметка базового шаблона](Template_Markup_For_Shop)
 - Using marketplace
 
 - Understanding core components
