@@ -120,65 +120,65 @@ return [
 Если представление этого виджета, будет редактироваться. То обновления кооличества продуктов и стоимости корзины, тэги должны содержать следующие атрибуты `class="items-count"` - для обозначения количества товаров в корзине. `class="total-price"` - для обозначения общей цены корзины.
 3. Увелечение колличества товара. У пользователя есть воможность изменять колличество позиций товара, что бы изменить колличества товара используется js - метод changeAmount ( @app/web/js/main.js )
 ```js
-  'changeAmount' : function(orderItemId, quantity, callback) {
-        var data = {
-            'id' : orderItemId,
-            'quantity' : quantity
-        };
-        jQuery.ajax({
-            'data' : data,
-            'dataType' : 'json',
-            'success' : function(data) {
-                if (typeof(callback) === 'function') {
-                    callback(data);
-                }
-            },
-            'type' : 'post',
-            'url' : '/cart/change-quantity'
-        });
-    }
+'changeAmount' : function(orderItemId, quantity, callback) {
+    var data = {
+        'id' : orderItemId,
+        'quantity' : quantity
+    };
+    jQuery.ajax({
+        'data' : data,
+        'dataType' : 'json',
+        'success' : function(data) {
+            if (typeof(callback) === 'function') {
+                callback(data);
+            }
+        },
+        'type' : 'post',
+        'url' : '/cart/change-quantity'
+    });
+}
 ```
 
     Пример вызова этого метода, можно увидеть в представлении начальной страницы корзины (@app/views/cart/index)
-    ```js
-      jQuery('input[data-type=quantity]').blur(function() {
-        var $input = jQuery(this);
-        var quantity = parseInt($input.val());
-        if (isNaN(quantity) || quantity < 1) {
-            quantity = 1;
+```js
+  jQuery('input[data-type=quantity]').blur(function() {
+    var $input = jQuery(this);
+    var quantity = parseInt($input.val());
+    if (isNaN(quantity) || quantity < 1) {
+        quantity = 1;
+    }
+    Shop.changeAmount($input.data('id'), quantity, function(data) {
+        if (data.success) {
+            jQuery('#cart-table .total-price').text(data.totalPrice);
+            jQuery('#cart-table .items-count').text(data.itemsCount);
+            $input.parents('tr').eq(0).find('.item-price').text(data.itemPrice);
+            $input.val(quantity);
         }
-        Shop.changeAmount($input.data('id'), quantity, function(data) {
-            if (data.success) {
-                jQuery('#cart-table .total-price').text(data.totalPrice);
-                jQuery('#cart-table .items-count').text(data.itemsCount);
-                $input.parents('tr').eq(0).find('.item-price').text(data.itemPrice);
-                $input.val(quantity);
-            }
-        });
     });
-    jQuery('#cart-table [data-action="change-quantity"]').click(function() {
-        var $this = jQuery(this);
-        var $input = $this.parents('td').eq(0).find('input[data-type=quantity]');
-        var quantity = parseInt($input.val());
-        if (isNaN(quantity)) {
-            quantity = 1;
+});
+jQuery('#cart-table [data-action="change-quantity"]').click(function() {
+    var $this = jQuery(this);
+    var $input = $this.parents('td').eq(0).find('input[data-type=quantity]');
+    var quantity = parseInt($input.val());
+    if (isNaN(quantity)) {
+        quantity = 1;
+    }
+    if ($this.hasClass('plus')) {
+        quantity++;
+    } else {
+        if(quantity > 1) {
+            quantity--;
         }
-        if ($this.hasClass('plus')) {
-            quantity++;
-        } else {
-            if(quantity > 1) {
-                quantity--;
-            }
+    }
+    Shop.changeAmount($input.data('id'), quantity, function(data) {
+        if (data.success) {
+            jQuery('#cart-table .total-price').text(data.totalPrice);
+            jQuery('#cart-table .items-count').text(data.itemsCount);
+            $input.parents('tr').eq(0).find('.item-price').text(data.itemPrice);
+            $input.val(quantity);
         }
-        Shop.changeAmount($input.data('id'), quantity, function(data) {
-            if (data.success) {
-                jQuery('#cart-table .total-price').text(data.totalPrice);
-                jQuery('#cart-table .items-count').text(data.itemsCount);
-                $input.parents('tr').eq(0).find('.item-price').text(data.itemPrice);
-                $input.val(quantity);
-            }
-        });
-        return false;
     });
-    ```
+    return false;
+});
+```
 
