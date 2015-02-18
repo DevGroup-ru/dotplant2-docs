@@ -27,6 +27,7 @@ backend\
 Для того чтобы Yii2 увидел наш модуль необходимо внести следующие изменения:
 
 * В файле `theme/module/Module.php` после строки `parent::init();` добавить следущие строки
+
 ```php
 $this->modules = [
     'backend' => [
@@ -36,9 +37,8 @@ $this->modules = [
 ];
 ```
 * Файл `theme/module/backend/Backend.php` привести к следующему виду
-```php
-<?php
 
+```php
 namespace app\web\theme\module\backend;
 
 use app\backend\BackendModule;
@@ -58,9 +58,8 @@ class Backend extends BackendModule
 ### Шаг 3. Создание контроллера и представления
 
 Создаем `theme/module/backend/controllers/CustomController.php` со следующим содержимым
-```php
-<?php
 
+```php
 namespace app\web\theme\module\backend\controllers;
 
 use Yii;
@@ -78,6 +77,7 @@ class CustomController extends Controller
 ```
 
 Создаем `theme/module/backend/views/custom/index.php` со следующим содержимым
+
 ```php
 <?= $content ?>
 ```
@@ -89,18 +89,19 @@ class CustomController extends Controller
 Для того, чтобы увидеть эту страницу могли только те пользователи, у которых есть права на ее просмотр необходимо выполнить следующие шаги:
 * Создать разрешение `custom manage` и назначить необходимым ролям это разрешение. Как это сделать, можно узнать [тут](Users_And_Roles)
 * В контроллер добавить метод 
+
 ```php
 public function behaviors()
 {
 	return [
 	    'access' => [
-		'class' => \yii\filters\AccessControl::className(),
-		'rules' => [
-		    [
-		        'allow' => true,
-		        'roles' => ['custom manage'],
-		    ],
-		],
+    		'class' => \yii\filters\AccessControl::className(),
+    		'rules' => [
+    		    [
+    		        'allow' => true,
+    		        'roles' => ['custom manage'],
+    		    ],
+    		],
 	    ],
 	];
 }
@@ -112,7 +113,7 @@ public function behaviors()
 1. Необходимо прейти в левом меню в "Настройки / Меню админки"
 2. Нажать добавить
 3. Заполнить поля:
- * Название - custom
- * Маршрут - site/backend/custom/index
- * Роль RBAC - custom manage
+    * Название - custom
+    * Маршрут - site/backend/custom/index
+    * Роль RBAC - custom manage
 4. Нажать сохранить
