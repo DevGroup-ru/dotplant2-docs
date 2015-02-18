@@ -37,8 +37,6 @@ $this->modules = [
 ```
 * Файл `theme/module/backend/Backend.php` привести к следующему виду
 ```php
-<?php
-
 namespace app\web\theme\module\backend;
 
 use app\backend\BackendModule;
@@ -59,8 +57,6 @@ class Backend extends BackendModule
 
 Создаем `theme/module/backend/controllers/CustomController.php` со следующим содержимым
 ```php
-<?php
-
 namespace app\web\theme\module\backend\controllers;
 
 use Yii;
