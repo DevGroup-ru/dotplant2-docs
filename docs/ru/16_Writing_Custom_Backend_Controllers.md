@@ -28,7 +28,7 @@ backend\
 
 * В файле `theme/module/Module.php` после строки `parent::init();` добавить следущие строки
 
-```php
+```
 $this->modules = [
     'backend' => [
         'class' => 'app\web\theme\module\backend\Backend',
@@ -38,7 +38,9 @@ $this->modules = [
 ```
 * Файл `theme/module/backend/Backend.php` привести к следующему виду
 
-```php
+```
+<?php
+
 namespace app\web\theme\module\backend;
 
 use app\backend\BackendModule;
@@ -59,7 +61,9 @@ class Backend extends BackendModule
 
 Создаем `theme/module/backend/controllers/CustomController.php` со следующим содержимым
 
-```php
+```
+<?php
+
 namespace app\web\theme\module\backend\controllers;
 
 use Yii;
@@ -78,7 +82,7 @@ class CustomController extends Controller
 
 Создаем `theme/module/backend/views/custom/index.php` со следующим содержимым
 
-```php
+```
 <?= $content ?>
 ```
 
@@ -90,7 +94,7 @@ class CustomController extends Controller
 * Создать разрешение `custom manage` и назначить необходимым ролям это разрешение. Как это сделать, можно узнать [тут](Users_And_Roles)
 * В контроллер добавить метод 
 
-```php
+```
 public function behaviors()
 {
 	return [
