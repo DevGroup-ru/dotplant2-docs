@@ -8,7 +8,7 @@
 ## Начало работы
 - Installing DotPlant2
     + Example setup with Ubuntu 14.10]
-- Configuration files
+- [Конфигурации](Configuration_files)
 - [Использование собственной темы](Theme)
 - [Обхор административной панели](Admin_Panel_Overview)
 - [Написание произвольного бэкэнд контроллера](Writing_Custom_Backend_Controllers)
@@ -27,9 +27,9 @@
         * Managing product properties
     + Processing orders
         * Custom order statuses
-    + Payment types
+    + [Типы платежей](Payment_types)
         * [Разработка платежных систем для DotPlant2](Custom_Payment)
-    + Shipping options
+    + [Способы доставки](Shipping_options)
     + Filtration by properties
     + [Динамический контент](Dynamic_Content)
     + [Импорт/экспорт](Import_Export)
