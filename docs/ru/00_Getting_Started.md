@@ -22,9 +22,9 @@
     + Implementing custom property type
 - Managing shop
     + Configuring catalog structure (categories)
-    + Managing products
-        * Understanding product options
-        * Managing product properties
+    + [Управление продуктами](Managing_Products)
+        * [Опции продукта](Understanding_Product_Options)
+        * [Управление свойствами продукта](Managing_Product_Properties)
     + Processing orders
         * Custom order statuses
     + [Типы платежей](Payment_types)
