@@ -1,35 +1,64 @@
 # Разметка шаблонов для поддержки мульивалютности
 
-Для отображения цен в валюте моделью `Product` предоставляются следующие методы:
+#### Для отображения цен в валюте моделью `Product` предоставляются следующие методы:
 
-`public function convertedPrice($currency = null, $oldPrice = false)`
++ `public function convertedPrice($currency = null, $oldPrice = false)`
 
-Возвращает цену(float) в необходимой валюте, если `$currency === null`, то будет возвращена цена в основной валюте магазина.
+    Возвращает цену(float) в необходимой валюте, если `$currency === null`, то будет возвращена цена в основной валюте магазина.
 
-Если нужно вернуть поле "старая цена" - `$oldPrice` устанавливаем в true.
+    Если нужно вернуть поле "старая цена" - `$oldPrice` устанавливаем в true.
 
----
+    ---
 
-`public function formattedPrice($currency = null, $oldPrice = false, $schemaOrg = true)`
++ `public function formattedPrice($currency = null, $oldPrice = false, $schemaOrg = true)`
 
-Возвращает HTML-код отображения цены в необходимой валюте с форматированием согласно настройкам валюты(модель `Currency`).
+    Возвращает HTML-код отображения цены в необходимой валюте с форматированием согласно настройкам валюты(модель `Currency`).
 
-`$currency` и `$oldPrice` аналогично `convertedPrice`.
+    `$currency` и `$oldPrice` аналогично `convertedPrice`.
 
-По-умолчанию возвращает с учетом микроразметки Schema.org/Offers примерно в таком виде:
+    По-умолчанию возвращает с учетом микроразметки Schema.org/Offers примерно в таком виде:
 
-``` html
+    ``` html
 
-<span itemtype="http://schema.org/Offer" itemprop="offers" itemscope>
-    <meta itemprop="priceCurrency" content="RUB">
-    <span itemprop="price" content="996">
-        996,00 руб.
+    <span itemtype="http://schema.org/Offer" itemprop="offers" itemscope>
+        <meta itemprop="priceCurrency" content="RUB">
+        <span itemprop="price" content="996">
+            996,00 руб.
+        </span>
     </span>
-</span>
 
-```
+    ```
 
-Если нужно вывести без schemaOrg - выставляем параметр `$schemaOrg` в false.
+    Если нужно вывести без schemaOrg - выставляем параметр `$schemaOrg` в false.
+
+    ---
+
++ `public function nativeCurrencyPrice($oldPrice = false, $schemaOrg = true)`
+
+    Возвращает HTML-код отображения цены аналогично `formattedPrice`, но в валюте конкретного товара.
+
+#### Также класс Currency предоставляет нам следуюище полезные функции:
+
+- `public function format($price)`
+    
+    Возвращает отформатированную строку цены $price в нужной валюте.
+
+    Пример использования(_вывод цены в формате валюты с ID=1_):
+
+    ``` php
+    $currency = \app\models\Currency::findById(1);
+    echo $currency->format(1488.1);
+    ```
+
+- `public static function findById($id)`
+
+    Возвращает экземпляр модели `Currency` для `id` с использованием кеша и Identity Map.
+
+    Пример использования(_вывод цены продукта в его родной валюте_):
+
+    ``` php
+    echo \app\models\Currency::findById($model->currency_id)->format($model->price) ?>
+    ```
 
 ## Список товаров
 
@@ -40,7 +69,7 @@
         <a class="btn" href="#" data-action="add-to-cart" data-id="<?=$product->id?>"><?=Yii::t(
                 'shop',
                 'Add to'
-            )?> <i class="icon-shopping-cart"></i></a>
+            )?> <i class="fa fa-shopping-cart"></i></a>
         <button class="btn btn-primary">
             <?= $product->formattedPrice(null, false, false) ?> <!-- отображение цены в валюте -->
         </button>
@@ -57,7 +86,6 @@
 Пример реализации для демонстрационной темы, представление `views/product/show.php`:
 
 ``` html
-
 <form class="form-horizontal qtyFrm">
     <div class="control-group">
         <label class="control-label">
@@ -72,7 +100,12 @@
             <?php endif; ?>
             <!-- отображение обычной цены в основной валюте магазина с учетом schema.org -->
             <?= $model->formattedPrice() ?>
-
+            <!-- отображение обычной цены в валюте товара, если она не основная -->
+            <?php if ($model->currency_id !== \app\models\Currency::getMainCurrency()->id): ?>
+            <small class="text-muted">
+                <?= \app\models\Currency::findById($model->currency_id)->format($model->price) ?>
+            </small>
+            <?php endif; ?>
 
         </label>
         <div class="controls">
@@ -96,13 +129,12 @@
                 <br />
                 <br />
                 <button type="submit" class="btn btn-large btn-primary" data-action="add-to-cart" data-id="<?= $model->id ?>">
-                    <?= Yii::t('shop', 'Add to') ?> <i class=" icon-shopping-cart"></i>
+                    <?= Yii::t('shop', 'Add to') ?> <i class="fa fa-shopping-cart"></i>
                 </button>
             </div>
         </div>
     </div>
 </form>
-
 ```
 
 В данном примере функция `formattedPrice` вызывается с параметрами по-умолчанию для основной цены. Используется вывод с поддержкой микрофората Schema.org, поскольку выше в шаблоне определена сущность http://schema.org/Product.
