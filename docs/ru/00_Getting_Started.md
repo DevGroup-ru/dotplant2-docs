@@ -50,6 +50,6 @@
 
 - Understanding core components
     + URL routing
-    + Tagable cache
+    + [Тегированный кэш](Tagable_Cache)
     + [Задачи](Background_Tasks)
     + Implementing custom search response
