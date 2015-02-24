@@ -100,10 +100,11 @@
             <?php endif; ?>
             <!-- отображение обычной цены в основной валюте магазина с учетом schema.org -->
             <?= $model->formattedPrice() ?>
-            <!-- отображение обычной цены в валюте товара, если она не основная -->
+            
             <?php if ($model->currency_id !== \app\models\Currency::getMainCurrency()->id): ?>
             <small class="text-muted">
-                <?= \app\models\Currency::findById($model->currency_id)->format($model->price) ?>
+                <!-- отображение обычной цены в валюте товара, если она не основная -->
+                <?= $model->nativeCurrencyPrice(false ,false) ?>
             </small>
             <?php endif; ?>
 
