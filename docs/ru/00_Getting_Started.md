@@ -30,7 +30,7 @@
     + [Типы платежей](Payment_types)
         * [Разработка платежных систем для DotPlant2](Custom_Payment)
     + [Способы доставки](Shipping_options)
-    + Filtration by properties
+    + [Фильтрация по свойствам](Filtration_By_Properties)
     + [Динамический контент](Dynamic_Content)
     + [Импорт/экспорт](Import_Export)
 - [Навигиция](Navigation)
