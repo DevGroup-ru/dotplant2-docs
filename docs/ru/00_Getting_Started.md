@@ -44,6 +44,8 @@
 - [Пользователи и роли](Users_And_Roles)
 - [SEO](SEO)
 - [Разметка базового шаблона](Template_Markup_For_Shop)
+- [Мультивалютность](Multicurrency)
+    + [Реализация верстки](Multicurrency_Markup)
 - Using marketplace
 
 - Understanding core components
