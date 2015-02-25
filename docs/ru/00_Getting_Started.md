@@ -18,7 +18,7 @@
     + [Категории](Categories)
     + [Продукты](Products)
 - Properties
-    + Managing properties
+    + [Управление свойствами](Managing_Properties)
     + Implementing custom property type
 - Managing shop
     + Configuring catalog structure (categories)
