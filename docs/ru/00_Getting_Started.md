@@ -26,7 +26,7 @@
         * [Опции продукта](Understanding_Product_Options)
         * [Управление свойствами продукта](Managing_Product_Properties)
     + Processing orders
-        * Custom order statuses
+        * [Управление статусами заказов](Custom_order_statuses)
     + [Типы платежей](Payment_types)
         * [Разработка платежных систем для DotPlant2](Custom_Payment)
     + [Способы доставки](Shipping_options)
