@@ -1,0 +1,65 @@
+#Установка DotPlant2 на Ubuntu 14.10 с нуля
+Установите LEMP, memcached, git:
+```bash
+sudo apt-get install  nginx php5-fpm php5-gd php5-mcrypt php5-json mysql-server php5-mysql php5-cli php5-memcached memcached php5-curl php5-intl git
+```
+Активируйте модуль `PHP5 mcrypt`:
+```bash
+sudo php5enmod mcrypt
+```
+Создайте MySQL базу данных и пользователя для нее.
+Запустите командную оболочку MySQL:
+```bash
+mysql -uroot -p
+```
+И выполните команду:
+```bash
+CREATE DATABASE dotplant2;
+GRANT ALL PRIVILEGES ON dotplant2.* To 'dotplant2'@'localhost' IDENTIFIED BY 'REPLACE_WITH_YOUR_PASSWORD';
+```
+Склонируйте гит репозиторий и запустите скрипт установки CMS:
+```bash
+git clone https://github.com/DevGroup-ru/dotplant2.git
+cd dotplant2/application && php install.php
+```
+Создайте конфигурационный файл для хоста `nginx` `/etc/nginx/sites-enabled/dotplant2-host`:
+```conf
+server {
+    listen 80;
+
+    # NOTE: Replace with your path here
+    root /home/user/dotplant2/application/web;
+    index index.php;
+
+    # NOTE: Replace with your hostname
+    server_name dotplant2.dev;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi.conf;
+    }
+
+    location ~ /\.ht {
+       deny all;
+    }
+}
+```
+Отредактируйте конфигурацию `PHP-fpm`: замените `cgi.fix_pathinfo = 1` на `cgi.fix_pathinfo = 0` или создайте файл `/etc/php5/fpm/pool.d/www_nginx.conf` со следующим содержанием:
+```conf
+[www]
+php_admin_value[cgi.fix_pathinfo]=0
+```
+Не забудьте перезагрузить `nginx` и `php5-fpm`: 
+```bash
+sudo service nginx restart
+sudo service php5-fpm restart
+```
+Это всё!
+Далее - [настройка](Web_application_configuratios)

@@ -7,8 +7,8 @@
 
 ## Начало работы
 - [Установка DotPlant2](Installing_dotPlant2)
-    +[Установка DotPlant2 на Ubuntu 14.10 с нуля](Example_setup_with_Ubuntu_14.10)
-    +[Настройки web приложения](Web_application_configuratios)
+    + [Установка DotPlant2 на Ubuntu 14.10 с нуля](Example_setup_with_Ubuntu_14.10)
+    + [Настройки web приложения](Web_application_configuratios)
 - [Конфигурации](Configuration_files)
 - [Использование собственной темы](Theme)
 - [Обхор административной панели](Admin_Panel_Overview)
