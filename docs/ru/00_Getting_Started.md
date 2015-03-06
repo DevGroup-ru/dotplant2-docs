@@ -11,7 +11,7 @@
     + [Настройки web приложения](Web_application_configuratios)
 - [Конфигурации](Configuration_files)
 - [Использование собственной темы](Theme)
-- [Обхор административной панели](Admin_Panel_Overview)
+- [Обзор административной панели](Admin_Panel_Overview)
 - [Написание произвольного бэкэнд контроллера](Writing_Custom_Backend_Controllers)
 - Base content principles
 - Управление страницами контента
