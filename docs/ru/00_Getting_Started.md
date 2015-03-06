@@ -49,7 +49,7 @@
 - Using marketplace
 
 - Understanding core components
-    + URL routing
+    + [Принципы роутинга](URL_Routing)
     + [Тегированный кэш](Tagable_Cache)
     + [Задачи](Background_Tasks)
     + Implementing custom search response
