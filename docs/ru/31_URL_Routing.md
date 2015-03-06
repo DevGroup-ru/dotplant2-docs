@@ -49,11 +49,13 @@
     [
         'product/show',
         'model' => $product,
+        'category_group_id' => $category_group_id,
     ]
 );
 
 ```
-где model — объект класса `Product`
+где model — объект класса `Product`,
+category_group_id -
 
 
 ### К странице
