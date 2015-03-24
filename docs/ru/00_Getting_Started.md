@@ -47,6 +47,7 @@
 - [Разметка базового шаблона](Template_Markup_For_Shop)
 - [Мультивалютность](Multicurrency)
     + [Реализация верстки](Multicurrency_Markup)
+    + [Реализация класса провайдера курса валют](Curency_rate_provider)
 - Using marketplace
 
 - Understanding core components
