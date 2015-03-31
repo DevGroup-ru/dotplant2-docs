@@ -38,6 +38,7 @@
     + Template markup
 - [Формы](Forms)
     + Template markup
+    + [Отправленные формы](Submissions)
 - [Отзывы](Reviews)
     + Template markup
 - [Автокомплит](Autocomplete)
