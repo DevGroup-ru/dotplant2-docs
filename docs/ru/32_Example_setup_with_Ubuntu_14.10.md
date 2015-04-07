@@ -43,7 +43,7 @@ server {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass unix:/var/run/php5-fpm.sock;
         fastcgi_index index.php;
-        include fastcgi.conf;
+        include fastcgi_params;
     }
 
     location ~ /\.ht {
