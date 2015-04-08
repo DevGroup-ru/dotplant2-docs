@@ -56,3 +56,4 @@
     + [Тегированный кэш](Tagable_Cache)
     + [Задачи](Background_Tasks)
     + Implementing custom search response
+    + [Проверка на спам](SpamChecker)
