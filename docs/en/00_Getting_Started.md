@@ -20,7 +20,7 @@
 - Managing shop
     + Configuring catalog structure (categories)
     + Managing products
-        * Understanding product options
+        * [Understanding product options](Backend/Managing_Shop/Managing_Products/Understanding_product_options.html)
         * Managing product properties
     + Processing orders
         * Custom order statuses
