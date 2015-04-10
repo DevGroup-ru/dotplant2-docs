@@ -25,6 +25,7 @@
     + Configuring catalog structure (categories)
     + [Управление продуктами](Managing_Products)
         * [Опции продукта](Understanding_Product_Options)
+	* [Вывод опций продукта](Product_Options_Markup_Example)
         * [Управление свойствами продукта](Managing_Product_Properties)
     + Processing orders
         * [Управление статусами заказов](Custom_order_statuses)
