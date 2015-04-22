@@ -44,6 +44,7 @@
     + Template markup
 - [Автокомплит](Autocomplete)
     + Template markup
+- [Чанки](Content_Blocks)
 - [Пользователи и роли](Users_And_Roles)
 - [SEO](SEO)
 - [Разметка базового шаблона](Template_Markup_For_Shop)
