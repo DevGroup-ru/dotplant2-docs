@@ -59,3 +59,4 @@
     + [Задачи](Background_Tasks)
     + Implementing custom search response
     + [Проверка на спам](SpamChecker)
+    + [Работа с изображениями](Images)
