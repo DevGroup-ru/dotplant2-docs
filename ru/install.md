@@ -16,7 +16,7 @@
 - curl
 - intl
 
-Полный процесс установки `CMS DotPlant2` описан [здесь](web-application-configuratios.md).
+Полный процесс установки `CMS DotPlant2` описан [здесь](web-application-configuration.md).
 
 ## Загрузка и установка
 

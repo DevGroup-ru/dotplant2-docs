@@ -80,4 +80,4 @@ sudo service php5-fpm restart
 - Через веб-интерфейс http://dotplant2.dev/installer.php
 - Через консоль из папки application запустите ./installer
 
-Далее - [настройка](web-application-configuratios.md)
+Далее - [настройка](web-application-configuration.md)

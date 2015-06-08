@@ -62,3 +62,5 @@ return [
 Данные настройки будут сохраняться в соответствующие файлы web-configurables.php, common-configurables.php, console-configurables.php
 
 Эти настройки перекрываются только настройками из файлов *-local.php
+
+**ВАЖНО:** Для корректной работы необходимо настроить [обработку фоновых задач](user/background-tasks.md).
