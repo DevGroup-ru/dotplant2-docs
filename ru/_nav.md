@@ -1,7 +1,7 @@
-[О DotPlant2](about.md)
+[О DotPlant2](/ru/about.md)
 
-[Установка CMS](install.md)
+[Установка CMS](/ru/install.md)
 
-[Руководство разработчика](dev/index.md)
+[Руководство разработчика](/ru/dev/index.md)
 
-[Руководство пользователя](user/index.md)
+[Руководство пользователя](/ru/user/index.md)
