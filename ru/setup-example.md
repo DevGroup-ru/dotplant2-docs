@@ -3,13 +3,7 @@
 Установите LEMP, memcached, git:
 
 ```bash
-sudo apt-get install  nginx php5-fpm php5-gd php5-mcrypt php5-json mysql-server php5-mysql php5-cli php5-memcached memcached php5-curl php5-intl git
-```
-
-Активируйте модуль `PHP5 mcrypt`:
-
-```bash
-sudo php5enmod mcrypt
+sudo apt-get install  nginx php5-fpm php5-gd php5-json mysql-server php5-mysql php5-cli php5-memcached memcached php5-curl php5-intl git
 ```
 
 Создайте MySQL базу данных и пользователя для нее.
@@ -26,12 +20,15 @@ CREATE DATABASE dotplant2;
 GRANT ALL PRIVILEGES ON dotplant2.* To 'dotplant2'@'localhost' IDENTIFIED BY 'REPLACE_WITH_YOUR_PASSWORD';
 ```
 
-Склонируйте гит репозиторий и запустите скрипт установки CMS:
+Склонируйте гит репозиторий и обновите зависимости:
 
 ```bash
 git clone https://github.com/DevGroup-ru/dotplant2.git
-cd dotplant2/application && php install.php
+cd dotplant2/application
+php ../composer.phar global require "fxp/composer-asset-plugin:1.0.0"
+php ../composer.phar install --prefer-dist --optimize-autoloader
 ```
+
 
 Создайте конфигурационный файл для хоста `nginx` `/etc/nginx/sites-enabled/dotplant2-host`:
 
@@ -78,5 +75,9 @@ sudo service nginx restart
 sudo service php5-fpm restart
 ```
 
-Это всё!
+Установить базовые настройки CMS можно двумя способами:
+
+- Через веб-интерфейс http://dotplant2.dev/installer.php
+- Через консоль из папки application запустите ./installer
+
 Далее - [настройка](web-application-configuratios.md)
