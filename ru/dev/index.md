@@ -21,6 +21,7 @@
     	- [Отзывы](frontend/widgets/review.md)
     	- [Корзина](frontend/widgets/cart-info.md)
     	- [Поиск с автодополнением](frontend/widgets/autocomplete-search.md)
+    	- [Изображения](frontend/widgets/object-image.md)
 
 - Backend-разработка
 	- [Написание произвольного backend-контроллера](custom-backend-controller.md)
