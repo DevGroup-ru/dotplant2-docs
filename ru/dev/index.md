@@ -12,7 +12,7 @@
     - [Тегированный кэш](taggable-cache.md)
 
 - Верстка шаблона и представлений
-    - [Общие сведения](common-markup-guide.md)
+    - Общие сведения
     - [Использование собственной темы](custom-theme.md)
     - [JavaScript утилиты](javascript-utilities.md)
     - Виджеты
