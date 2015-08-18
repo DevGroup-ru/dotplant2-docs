@@ -30,3 +30,5 @@
 	- [JavaScript утилиты Backend-а](backend-javascript-utilities.md)
 	- Консольные команды
 		- `admin/create-theme` - создание каркаса темы в `@app/web/theme-name`, где `theme-name` - название папки, которое является значение переданным первым параметром в команду (по-умолчанию - `theme`).
+	- [Написание расширения на примере WYSIWYG](extension-wysiwyg.md)
+
