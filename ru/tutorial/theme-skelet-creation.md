@@ -14,12 +14,17 @@ $ ./yii admin/create-theme
 
 ```
 css
+dist
 fonts
+gulpfile.js
 images
 index.html
 js
 module
+node_modules
+package.json
 resources
+sass
 views
 ```
 
@@ -38,33 +43,7 @@ $ git remote add origin git@YOUR_GIT_HOST:YOUR_THEME_REPO.git
 $ git commit -m "first commit :grinning:"
 [master (root-commit) e341004] first commit :grinning:
  27 files changed, 70 insertions(+)
- create mode 100644 css/index.html
- create mode 100644 fonts/index.html
- create mode 100644 images/index.html
- create mode 100644 index.html
- create mode 100644 js/index.html
- create mode 100644 module/.htaccess
- create mode 100644 module/assets/ThemeAsset.php
- create mode 100644 module/components/.keep
- create mode 100644 module/config/web.php
- create mode 100644 module/controllers/.keep
- create mode 100644 module/migrations/.keep
- create mode 100644 module/models/.keep
- create mode 100644 module/views/.keep
- create mode 100644 module/widgets/.keep
- create mode 100644 resources/index.html
- create mode 100644 resources/product-images/.gitignore
- create mode 100644 resources/product-images/index.html
- create mode 100644 views/.htaccess
- create mode 100644 views/modules/basic/default/.keep
- create mode 100644 views/modules/basic/layouts/main.php
- create mode 100644 views/modules/page/page/.keep
- create mode 100644 views/modules/shop/cart/.keep
- create mode 100644 views/modules/shop/product-compare/.keep
- create mode 100644 views/modules/shop/product/.keep
- create mode 100644 views/templates/.keep
- create mode 100644 views/widgets/form/.keep
- create mode 100644 views/widgets/navigation/.keep
+
 
 $ git push -u origin master
 Counting objects: 22, done.
