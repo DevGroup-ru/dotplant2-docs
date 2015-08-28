@@ -185,3 +185,189 @@ use LoadModel;
 - **Save & Go back** - сохранить и вернуться назад(на список)
 - **Save** - сохранить и продолжить редактирование текущей модели
 
+Пример представления со списком моделей и кнопками удаления:
+```php
+<?php
+use kartik\dynagrid\DynaGrid;
+use yii\helpers\Html;
+use app\backend\components\ActionColumn;
+/*
+ * @var $dataProvider yii\data\ActiveDataProvider
+ * @var $searchModel app\components\SearchModel
+ * @var $this yii\web\View
+ */
+
+$this->title = Yii::t('app', 'Addons categories');
+$this->params['breadcrumbs'][] = $this->title;
+
+?>
+<?=
+DynaGrid::widget(
+    [
+        'options' => [
+            'id' => 'addons-categories-grid',
+        ],
+        'theme' => 'panel-default',
+        'gridOptions' => [
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'hover' => true,
+            'panel' => [
+                'heading' => Html::tag('h3', $this->title, ['class' => 'panel-title']),
+                'after' => Html::a(
+                    \kartik\icons\Icon::show('plus') . Yii::t('app', 'Add'),
+                    ['edit-category'],
+                    ['class' => 'btn btn-success']
+                ) .  \app\backend\widgets\RemoveAllButton::widget([
+                    'url' => 'remove-all-categories',
+                    'gridSelector' => '.grid-view',
+                    'htmlOptions' => [
+                        'class' => 'btn btn-danger pull-right'
+                    ],
+                ]),
+            ],
+        ],
+        'columns' => [
+            [
+                'class' => \app\backend\columns\CheckboxColumn::className(),
+            ],
+            'id',
+            'name',
+            [
+                'class' => ActionColumn::className(),
+                'buttons' => [
+                    [
+                        'url' => 'edit-category',
+                        'icon' => 'pencil',
+                        'class' => 'btn-default',
+                        'label' => Yii::t('app', 'Edit'),
+
+                    ],
+                    [
+                        'url' => 'view-category',
+                        'icon' => 'list',
+                        'class' => 'btn-primary',
+                        'label' => Yii::t('app', 'View'),
+
+                    ],
+                    [
+                        'url' => 'delete-category',
+                        'icon' => 'trash-o',
+                        'class' => 'btn-danger',
+                        'label' => Yii::t('app', 'Delete'),
+                    ],
+                ]
+            ],
+        ],
+    ]
+);
+?>
+```
+
+## Пример готового кода контроллера
+```php
+<?php
+
+namespace app\modules\shop\backend;
+
+use app\backend\components\BackendController;
+use app\modules\shop\models\Addon;
+use app\traits\LoadModel;
+use app\backend\traits\BackendRedirect;
+use app\backend\actions\MultipleDelete;
+use app\backend\actions\DeleteOne;
+use app\modules\shop\models\AddonCategory;
+use Yii;
+use yii\filters\AccessControl;
+use yii\web\NotFoundHttpException;
+
+/**
+ * Backend controller for managing addons, their categories and bindings
+ * @package app\modules\shop\backend\
+ */
+class AddonsController extends BackendController
+{
+    use BackendRedirect;
+    use LoadModel;
+    /**
+     * @inheritdoc
+     * @return array
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['product manage'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'remove-all-categories' => [
+                'class' => MultipleDelete::className(),
+                'modelName' => AddonCategory::className(),
+            ],
+            'delete-category' => [
+                'class' => DeleteOne::className(),
+                'modelName' => AddonCategory::className(),
+            ],
+        ];
+    }
+
+    /**
+     * Renders AddonCategory grid
+     * @return string
+     */
+    public function actionIndex()
+    {
+        $searchModel = new AddonCategory();
+        $params = Yii::$app->request->get();
+
+        $dataProvider = $searchModel->search($params);
+
+        return $this->render(
+            'index',
+            [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]
+        );
+    }
+
+    /**
+     * Add or edit existing AddonCategory model
+     * @param null|string $id
+     * @return string|\yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionEditCategory($id=null)
+    {
+        $model = $this->loadModel(AddonCategory::className(), $id, true);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+                if ($model->save()) {
+                    return $this->redirectUser($model->id, true, 'index', 'edit-category');
+                }
+        }
+        return $this->render(
+            'edit-category',
+            [
+                'model' => $model,
+            ]
+        );
+    }
+
+
+}
+```
