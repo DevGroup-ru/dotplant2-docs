@@ -19,7 +19,7 @@ class Widget extends BaseWidget
 }
 ```
 
-Затем создайте папку `views`, а в ней файл `new-widget.php` с содержимым
+Рядом создайте папку `views`, а в ней файл `new-widget.php` с содержимым
 ```php
 <div>
     new-widget-content
