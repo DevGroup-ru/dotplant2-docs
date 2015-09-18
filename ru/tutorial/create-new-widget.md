@@ -1,4 +1,4 @@
-#Пример создания собственного виджета
+# Пример создания собственного виджета
 Подразумевается что уже создана новая тема, как описано [здесь](theme-skelet-creation.md)
 
 В папке `application/web/theme/module/widgets` создайте папку для нового виджета `NewWidget`
@@ -14,7 +14,7 @@ class Widget extends BaseWidget
 {
     public function widgetRun()
     {
-      return $this->render('new-widget');
+        return $this->render('new-widget');
     }
 }
 ```
