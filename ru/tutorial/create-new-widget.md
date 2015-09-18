@@ -44,4 +44,7 @@ class Widget extends BaseWidget
 В разделе Left sidebar будет доступен созданный виджет NewWidget
 Выбирете его
 
-После этого на главной странице в `Left Sidebar` должно отобразиться `new-widget-content`
+После этого на главной странице в `Left Sidebar` должно отобразиться 
+```
+new-widget-content
+```
