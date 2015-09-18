@@ -27,8 +27,8 @@ class Widget extends BaseWidget
 ```
 
 ## Добавление нового виджета в интерфейсе.
-Зайдите по пути `DefaultTheme/backend-configuration/index`, вкладка Все виджеты
-Нажмите Добавить
+Зайдите по пути `DefaultTheme/backend-configuration/index`, вкладка `Все виджеты`
+Нажмите `Добавить`
 Заполните поля:
 - `Название`: NewWidget
 - `Виджет`: app\web\theme\module\widgets\NewWidget\Widget
