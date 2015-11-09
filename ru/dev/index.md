@@ -25,7 +25,7 @@
     	- [Поиск с автодополнением](frontend/widgets/autocomplete-search.md)
     	- [Изображения](frontend/widgets/object-image.md)
     - [Динамический контент](frontend/dynamic-content.md)
-    - [Пример создания собственного виджета](../tutorials/create-new-widget.md)
+    - [Пример создания собственного виджета](../tutorial/create-new-widget.md)
 
 - Backend-разработка
 	- [Написание произвольного backend-контроллера](custom-backend-controller.md)
