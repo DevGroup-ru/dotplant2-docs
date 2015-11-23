@@ -20,7 +20,7 @@
 
 ## Загрузка и установка
 
-Склонируейте гит репозиторий:
+Склонируйте гит репозиторий:
 ```bash
 git clone git@github.com:DevGroup-ru/dotplant2.git
 ```
@@ -31,10 +31,14 @@ git clone git@github.com:DevGroup-ru/dotplant2.git
 Переходим в директорию `application` и выполняем следующие команды:
 
 ```bash
-php ../composer.phar global require "fxp/composer-asset-plugin:1.0.0"
+php ../composer.phar global require "fxp/composer-asset-plugin:~1.0"
 php ../composer.phar install --prefer-dist --optimize-autoloader
 ```
-Далее открываем в браузере `YOUR_HOST_NAME/installer.php` и следуем инструкциям.
+
+Запускаем консольный инсталятор
+```bash
+./installer
+```
 
 ## Пример установки на Ubuntu 14.10
 
