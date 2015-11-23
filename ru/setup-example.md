@@ -25,7 +25,7 @@ GRANT ALL PRIVILEGES ON dotplant2.* To 'dotplant2'@'localhost' IDENTIFIED BY 'RE
 ```bash
 git clone https://github.com/DevGroup-ru/dotplant2.git
 cd dotplant2/application
-php ../composer.phar global require "fxp/composer-asset-plugin:1.0.0"
+php ../composer.phar global require "fxp/composer-asset-plugin:~1.0"
 php ../composer.phar install --prefer-dist --optimize-autoloader
 ```
 
@@ -75,9 +75,7 @@ sudo service nginx restart
 sudo service php5-fpm restart
 ```
 
-Установить базовые настройки CMS можно двумя способами:
-
-- Через веб-интерфейс http://dotplant2.dev/installer.php
-- Через консоль из папки application запустите ./installer
+Установить базовые настройки CMS 
+- Через консоль из папки application запустите `./installer`
 
 Далее - [настройка](web-application-configuration.md)
