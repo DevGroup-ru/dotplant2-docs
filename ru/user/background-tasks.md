@@ -1,6 +1,6 @@
 # Фоновые задания
 
-Для автоматического запуска заданий, необходимо зарегистрировать следующую команду cron  `* * * * * path/to/asgard/application/yii background/tasks`
+Для автоматического запуска заданий, необходимо зарегистрировать следующую команду cron  `* * * * * path/to/dotplant/application/yii background/tasks`
 
 Для использования Вы должны наследоваться от контроллера `yii\console\Controller` и зарегистрировать задачу в диспетчере задач `/background/manage/index` или использовать помощник `app\backgroundtasks\helpers\BackgroundTasks::addTask($params)` если задача используется по событию.
 
