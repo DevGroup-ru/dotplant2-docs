@@ -35,7 +35,7 @@ git clone https://github.com/DevGroup-ru/dotplant2.git
 Обновляем зависимости, подтягиваем вендоров (консоль Open Server: Меню / Дополнительно / Консоль):
 ``` bash
 cd <pathto>/application
-php ../composer.phar global require "fxp/composer-asset-plugin:1.0.0"
+php ../composer.phar global require "fxp/composer-asset-plugin:~1.0"
 php ../composer.phar install --prefer-dist --optimize-autoloader
 ```
 
