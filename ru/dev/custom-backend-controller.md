@@ -1,62 +1,8 @@
 # Написание произвольного бэкэнд контроллера
 
-Для создания произвольного бэкэнд контроллера необходимо создать [вложенный модуль](http://www.yiiframework.com/doc-2.0/guide-structure-modules.html#nested-modules) Backend в пространстве имён `app\web\theme\module`. Если у Вас мало опыта работы с Yii2 рекомендуется использовать генератор кода [Gii](http://www.yiiframework.com/doc-2.0/guide-start-gii.html).
+> Если у Вас мало опыта работы с Yii2 рекомендуется использовать генератор кода [Gii](http://www.yiiframework.com/doc-2.0/guide-start-gii.html).
 
-## Шаг 1. Создание модуля
-
-Рекомендуемая структура модуля:
-```php
-backend\
-	controlles\
-		...
-		CustomController.php
-		...
-	views\
-		...
-		custom\
-			...
-			index.php
-			...
-		...
-	Backend.php
-```
-
-## Шаг 2. Настройка модуля
-
-Для того чтобы Yii2 увидел наш модуль необходимо внести следующие изменения:
-
-* В файле `theme/module/Module.php` после строки `parent::init();` добавить следущие строки
-
-```php
-$this->modules = [
-    'backend' => [
-        'class' => 'app\web\theme\module\backend\Backend',
-        'layout' => '@app/backend/views/layouts/main',
-    ],
-];
-```
-* Файл `theme/module/backend/Backend.php` привести к следующему виду
-
-```php
-<?php
-
-namespace app\web\theme\module\backend;
-
-use app\backend\BackendModule;
-
-class Backend extends BackendModule
-{
-    public $defaultRoute = 'dashboard/index';
-    public $administratePermission = 'administrate';
-
-    public function init()
-    {
-        parent::init();        
-    }
-}
-```
-
-## Шаг 3. Создание контроллера и представления
+## Шаг 1. Создание контроллера и представления
 
 Создаем `theme/module/backend/controllers/CustomController.php` со следующим содержимым
 
@@ -85,9 +31,19 @@ class CustomController extends BackendController
 <?= $content ?>
 ```
 
-Результат работы контроллера можно увидеть по адресу http://URL/site/backend/custom/
+Чтобы Yii2 увидел наш контроллер необходимо внести следующие изменения в конфигурационный файл `theme/module/config/web.php`:
+```
+'modules' => [
+        'site' => [
+            'class' => 'app\web\theme\module\ThemeModule',
+            'controllerNamespace' => 'app\web\theme\module\backend\controllers',
+        ],
+]
+```
 
-## Шаг 4. Настройка RBAC
+Результат работы контроллера можно увидеть по адресу http://URL/site/custom/
+
+## Шаг 2. Настройка RBAC
 
 Для того, чтобы увидеть эту страницу могли только те пользователи, у которых есть права на ее просмотр необходимо выполнить следующие шаги:
 * Создать разрешение `custom manage` и назначить необходимым ролям это разрешение. Как это сделать, можно узнать [тут](Users_And_Roles)
@@ -110,7 +66,7 @@ public function behaviors()
 }
 ```
 
-### Шаг 5. Добавление ссылки в меню
+### Шаг 3. Добавление ссылки в меню
 
 Необходимо, чтобы к созданному контроллеру был доступ не только у тех кто знает прямой URL, по этому нужно создать пункт в меню административной панели. Для этого:
 1. Необходимо прейти в левом меню в "Настройки / Меню админки"
@@ -121,7 +77,7 @@ public function behaviors()
     * Роль RBAC - custom manage
 4. Нажать сохранить
 
-## Шаг 6. Стандартные CRUD хелперы
+## Шаг 4. Стандартные CRUD хелперы
 
 DotPlant2 предоставляет специальные хелперы, ускоряющие реализацию стандартных CRUD операций:
 - BackendRedirect - трейт, используемый для правильной переадресации при редактировании/создании элемента. Используется совместно с `\app\backend\components\Helper::saveButtons`
