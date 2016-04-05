@@ -10,6 +10,7 @@
 
 - Архитектура CMS
     - [Список основных URL маршрутов](url-routes.md)
+    - [Настройки ЧПУ категорий](category-route.md)
     - [Принципы роутинга](routing.md)
     - [Тегированный кэш](taggable-cache.md)
 
