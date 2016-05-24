@@ -27,6 +27,7 @@
     	- [Изображения](frontend/widgets/object-image.md)
     - [Динамический контент](frontend/dynamic-content.md)
     - [Пример создания собственного виджета](../tutorial/create-new-widget.md)
+    - [Google Merchant](google-merchant.md)
 
 - Backend-разработка
 	- [Написание произвольного backend-контроллера](custom-backend-controller.md)
