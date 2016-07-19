@@ -1,4 +1,4 @@
-[О DotPlant2](/en/about.md)
+[About DotPlant2](/en/about.md)
 
 [Installing CMS](/en/install.md)
 
