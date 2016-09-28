@@ -67,7 +67,7 @@ git remote add origin git@your.git.host:vendor/repo.git # эта команда 
 ``` bash
 git pull         # обновить git репозиторий
 cd application
-composer update  # обновить зависимости composer
+composer install  # обновить зависимости composer
 ./yii migrate    # применить миграции
 ```
 
