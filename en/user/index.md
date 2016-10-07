@@ -1,0 +1,53 @@
+# User guide
+
+- [Frequently Asked Questions](faq.md)
+- [Review of the administrative panel](admin-panel-overview.md)
+  - [Page](page.md)
+  - Score
+      - [Category](category.md)
+      - [Products](product.md)
+      - Orders
+      - Order Phase
+      - [Payment methods](payment-type.md)
+      - [Set of filters](filter-sets.md)
+      - [Delivery method](shipping-option.md)
+      - Category Groups
+      - Predfiltrovannye page
+      - [Currency](currency.md)
+      - [Measures](measure.md)
+      - Discounts
+      - Warehouses
+  - properties
+      - [Properties](property.md)
+      - Representation
+  - [Reviews](reviews.md)
+  - Group rankings
+  - Navigation
+  - forms
+  - [Dynamic content](dynamic-content.md)
+  - [Content Blocks](content-blocks.md)
+  - Sliders
+  - [Users](user.md)
+  - [Roles](rbac.md)
+  - Seo
+      - Meta tags
+      - Counters
+      - Robots.txt
+      - Redirects
+      - E-commerce counters
+  - [Images](image.md)
+      - [Thumbnail Dimensions](image-thumbnail.md)
+      - [Create thumbnail](image-create-thumbnails.md)
+      - [Watermark](image-watermark.md)
+      - [Broken Image](image-error.md)
+  - Error Monitoring
+      - Monitoring
+      - Settings
+  - Settings
+      - [Tasks](background-tasks.md)
+      - [Configuration](configuration.md)
+      - [Internationalization](i18n.md)
+      - [Anti-spam](spam-checker.md)
+      - [Menu admin](backend-menu.md)
+      - [Data (Import / Export)](data.md)
+      - YML
