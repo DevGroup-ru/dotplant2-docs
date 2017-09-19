@@ -13,7 +13,7 @@ $form = \kartik\widgets\ActiveForm::begin(
    [
        'action' => ['/search'],
        'method' => 'get',
-       'id' => formid,
+       'id' => $form->id,
    ]
 );
 
